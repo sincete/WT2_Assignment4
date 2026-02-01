@@ -21,7 +21,7 @@ exports.login = async (req, res) => {
 
         const user = await User.findOne({ email });
         if (!user) {
-            console.log("❌ User not found in database");
+            console.log(" User not found in database");
             return res.status(401).json({ message: 'Invalid email or password' });
         }
 
@@ -38,7 +38,8 @@ exports.login = async (req, res) => {
             { expiresIn: '1h' }
         );
 
-        console.log("✅ Login successful!");
+        console.log("
+                    Login successful!");
         res.json({ token, role: user.role });
     } catch (err) {
         console.error("Login Error:", err.message);
